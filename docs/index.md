@@ -1,4 +1,3 @@
 # Welcome to Mohammad's Course Notes
 
-I will use this page to organize and share my course notes.
-
+This is my home page. I will use it to organize and share my course notes.
