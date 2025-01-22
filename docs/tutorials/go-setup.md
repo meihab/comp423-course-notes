@@ -2,3 +2,10 @@
 
 * Primary author: [Mohammad Saatialsoruji](https://github.com/meihab)
 * Reviewer: [Muhammad Fouly](https://github.com/MuhammadDF)
+
+``` py
+# This is an example of a code block
+# Code blocks are an essential part of project documentation
+# We will see these many times throughout the tutorial
+print("We love COMP 423!")
+```
