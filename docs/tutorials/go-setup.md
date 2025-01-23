@@ -12,5 +12,5 @@ print("We love COMP 423!")
 
 !!! success
     I have successfully set up admonitions for my partner! - Muhammad Fouly             
-    You will see these throughout the tutorial for the purpose of side content without diturbing document flow :)
+    You will see these throughout the tutorial for the purpose of side content without disturbing document flow :)
 
