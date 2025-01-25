@@ -80,9 +80,9 @@ git push --set-upstream origin main
 
 ### What is a Development (Dev) Container?
 
-A dev container ensures that you are using the same development tools no matter which machine you are on. At its core, a dev container is a preconfigured environment defined by a set of files, to create isolated, consistent setups for development. Think of it as another computer running on your computer which includes everything you need to work on a specific project—like the right programming language, tools, libraries, and dependencies.
+A dev container ensures that you are using the same development tools no matter which machine you are on. In essence, a dev container is a preconfigured environment defined by a set of files usually using Docker to create isolated, consistent setups for development. Think of it as another computer running on your computer which includes everything you need to work on a specific project. This can include the right programming language, tools, libraries, dependencies, etc.
 
-This is valuable because teams in the technology industry often work on complex projects that require a specific set of tools and dependencies to function correctly. Without a dev container, each developer must manually set up their environment (you can imagine how a big of a nightmare that used to be for those poor developers), leading to errors, wasted time, and inconsistencies. With a dev container, everyone works in an identical environment, reducing bugs caused by "it works on my machine" issues. It also simplifies onboarding new team members and reduces wasted time since they can just start coding with a few lines of json in place.
+This is valuable because teams in the technology industry often work on complex projects that require a specific set of tools and dependencies. Without a dev container, each developer has to manually set up their environment on their machine. This could lead to errors, wasted time, and inconsistencies. However, with a dev container, everyone on the team works in an identical environment, reducing bugs caused by "it works on my machine" issues. Dev containers also simplify onboarding new team members and reduce wasted time since they can just start coding with a few lines of json in place.
 
 ### How are software project dependencies managed?
 In most software projects, you will rely on external libraries to leverage work that has been done by others. Managing software dependencies is essential to ensure that your project has access to the correct versions of all of these libraries, avoiding compatibility issues. 
@@ -108,14 +108,14 @@ We will see a simple example of dependency management in Go soon!
     "vscode": {
       "settings": {},
       "extensions": [
-        "golang.go"
+        "golang.Go"
       ]
     }
   },
   "postCreateCommand": ""
 }
 ```
-!!! note 
+!!! Note 
     - `name`: A descriptive name for your container.
     - `image`: The Docker image we use. Microsoft maintains a variety of base images for popular languages, including Go.
     - `customizations`: Ensures that the recommended VS Code extensions (like the official Go extension) are installed for anyone who opens this project.
