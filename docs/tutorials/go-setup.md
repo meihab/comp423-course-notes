@@ -205,13 +205,18 @@ HELLO COMP423
 Now that you have your Go program running, all you need to do is push your new dev container project to GitHub! Use the following commands:
 ``` bash
 git add .
-git commit -m "Successfully printed HELLO COMP423 with my own Go Dev Container"
+git commit -m "Successfully printed HELLO COMP423 with my own Go dev container"
 git push
 ```
 
 --- 
 
 ## Conclusion
+
+--- 
+
+## References
+
 
 
 
