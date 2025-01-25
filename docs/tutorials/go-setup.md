@@ -16,6 +16,9 @@ print("We love COMP 423!")
 
 ## Welcome 
 This tutorial will provide step-by-step instructions for creating a Development (Dev) container in Go, a programming language created by Google!
+
+---
+
 ## Prerequisites
 To proceed with this tutorial, you will need to have the following: 
 
@@ -24,6 +27,8 @@ To proceed with this tutorial, you will need to have the following:
 3. **Visual Studio Code**: Download and install from [here](https://code.visualstudio.com/).
 4. **Docker installed**: Get Docker [here](https://www.docker.com/products/docker-desktop/).
 5. **Basic command-line knowledge**
+
+---
 
 ## Part 1. Let's Start With the Project Setup!
 ### Creating a Local Directory and Initializing Git
@@ -76,7 +81,9 @@ git push --set-upstream origin main
 
 (D) Back in your web browser, refresh your GitHub repository to see that the same commit you made locally has now been pushed to remote. You can use git log locally to see the commit ID and message which should match the ID of the most recent commit on GitHub. This is the result of pushing your changes to your remote repository.
 
-## Part 2. Setting Up the Development Environment (CHANGE)
+---
+
+## Part 2. Setting Up the Development Environment 
 
 ### What is a Development (Dev) Container?
 
@@ -126,7 +133,9 @@ To reopen the project in the container, press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<
 
 Once your dev container setup completes, close the current terminal tab and open a new terminal pane within VSCode. Run: `go version`. You should see your dev container running the latest version of Go. (As of January 2025, the latest stable Go version is go1.23.4)
 
-## Part 3: Developing in Go
+---
+
+## Part 3. Developing in Go
 
 ### Creating a New Module 
 As we mentioned, Go uses **modules** to manage dependencies and organize your code. To initialize a new module named `hello_world` for your project, follow these steps:
@@ -150,14 +159,16 @@ go 1.xx
 ```
 `module hello_world` declares this directory as a module named `hello_world`.
 
-(C) Create a file named `main.go` in the `hello_world` directory:
+### Compiling and Running Your Program
+
+(A) Create a file named `main.go` in the `hello_world` directory:
 ``` bash
 code main.go
 ```
 !!! note
     The `code` command is not set up by default for VSCode. To set it up you can check out my colleague's tutorial [here.](https://muhammaddf.github.io/comp423-course-notes/tutorials/code-command/) Otherwise you can just manually do it in VSCode by right-clicking on the hello_world folder, creating a new file and naming it `main.go`
 
-(D) Write your first program in Go!
+(B) Write your first program in Go!
 ``` go
 package main
 
@@ -168,7 +179,7 @@ func main() {
 }
 ```
 
-(E) You can now compile and run your code using the following command:
+(C) You can now compile and run your code using the following command:
 ``` bash 
 go run main.go
 ```
@@ -186,6 +197,21 @@ HELLO COMP423
 
 !!! success 
     You have built a development container for Go and successfully printed HELLO COMP423!
+
+---
+
+## Part 4. Pushing Your Work to GitHub
+
+Now that you have your Go program running, all you need to do is push your new dev container project to GitHub! Use the following commands:
+``` bash
+git add .
+git commit -m "Successfully printed HELLO COMP423 with my own Go Dev Container"
+git push
+```
+
+--- 
+
+## Conclusion
 
 
 
