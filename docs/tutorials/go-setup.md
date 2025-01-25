@@ -15,8 +15,7 @@ print("We love COMP 423!")
     You will see these throughout the tutorial for the purpose of side content without disturbing document flow :)
 
 ## Welcome 
-edits
-
+This tutorial will provide step-by-step instructions for creating a Development (Dev) container in Go, a programming language created by Google!
 ## Prerequisites
 To proceed with this tutorial, you will need to have the following: 
 
@@ -29,7 +28,7 @@ To proceed with this tutorial, you will need to have the following:
 ## Part 1. Let's Start With the Project Setup!
 ### Creating a Local Directory and Initializing Git
 - Open your terminal or command prompt. 
-- Creating a new directory for you project:
+- Create a new directory for you project by running:
 ``` bash
 mkdir go-dev-container
 cd go-dev-container
@@ -68,7 +67,7 @@ Replace `<your-username>` with your GitHub username.
 (B) Check your default branch name with the subcommand `git branch`. 
 
 !!! Note
-    Old versions of git choose the name master for the primary branch, but these days main is the standard name. You can rename your default branch to main using the following command: `git branch -M main`
+    Old versions of git choose the name `master` for the primary branch, but these days `main` is the standard name. You can rename your default branch to main using the following command: `git branch -M main`
 
 (C) Push your local commits to the GitHub repository:
 ``` bash
@@ -81,13 +80,12 @@ git push --set-upstream origin main
 
 ### What is a Development (Dev) Container?
 
-A dev container ensures that your development environment is consistent and works across different machines. At its core, a dev container is a preconfigured environment defined by a set of files, typically leveraging Docker to create isolated, consistent setups for development. Think of it as a "mini computer" inside your computer that includes everything you need to work on a specific project—like the right programming language, tools, libraries, and dependencies.
+A dev container ensures that you are using the same development tools no matter which machine you are on. At its core, a dev container is a preconfigured environment defined by a set of files, to create isolated, consistent setups for development. Think of it as another computer running on your computer which includes everything you need to work on a specific project—like the right programming language, tools, libraries, and dependencies.
 
-Why is this valuable? In the technology industry, teams often work on complex projects that require a specific set of tools and dependencies to function correctly. Without a dev container, each developer must manually set up their environment, leading to errors, wasted time, and inconsistencies. With a dev container, everyone works in an identical environment, reducing bugs caused by "it works on my machine" issues. It also simplifies onboarding new team members since they can start coding with just a few steps.
-(Edit some of this)
+This is valuable because teams in the technology industry often work on complex projects that require a specific set of tools and dependencies to function correctly. Without a dev container, each developer must manually set up their environment (you can imagine how a big of a nightmare that used to be for those poor developers), leading to errors, wasted time, and inconsistencies. With a dev container, everyone works in an identical environment, reducing bugs caused by "it works on my machine" issues. It also simplifies onboarding new team members and reduces wasted time since they can just start coding with a few lines of json in place.
 
 ### How are software project dependencies managed?
-In most software projects, you will rely on external libraries to leverage work that has been done by others. Managing software dependies is essential to ensure that your project has access to the correct versions of these libraries, avoiding compatibility issues. 
+In most software projects, you will rely on external libraries to leverage work that has been done by others. Managing software dependencies is essential to ensure that your project has access to the correct versions of all of these libraries, avoiding compatibility issues. 
 
 For Go, **Go Modules** manage dependencies. This system was introduced to standardize how external packages are fetched and versioned:
 - **go.mod**: Lists your module’s name and its direct dependencies.
@@ -96,6 +94,7 @@ We will see a simple example of dependency management in Go soon!
 
 ### Step 1. Add Development Container Configuration
 1. In VS Code, open the `go-dev-container` directory. You can do this via: File > Open Folder.
+    - For more convenience, follow [this.](https://muhammaddf.github.io/comp423-course-notes/tutorials/code-command/)
 2. Install the Dev Containers extension for VS Code.
 3. Create a `.devcontainer` directory in the root of your project with the following file inside of this "hidden" configuration directory: 
 
@@ -109,7 +108,7 @@ We will see a simple example of dependency management in Go soon!
     "vscode": {
       "settings": {},
       "extensions": [
-        "golang.Go"
+        "golang.go"
       ]
     }
   },
@@ -117,15 +116,15 @@ We will see a simple example of dependency management in Go soon!
 }
 ```
 !!! note 
-    - name: A descriptive name for your container.
-    - image: The Docker image we use. Microsoft maintains a variety of base images for popular languages, including Go.
-    - customizations: Ensures that the recommended VS Code extensions (like the official Go extension) are installed for anyone who opens this project.
-    - postCreateCommand: Commands to run right after the container is built. Since we only need a basic environment for "Hello World," we can leave it empty for now.
+    - `name`: A descriptive name for your container.
+    - `image`: The Docker image we use. Microsoft maintains a variety of base images for popular languages, including Go.
+    - `customizations`: Ensures that the recommended VS Code extensions (like the official Go extension) are installed for anyone who opens this project.
+    - `postCreateCommand`: Commands to run right after the container is built. Since we only need a basic environment for "Hello World," we can leave it empty for now.
 
 ### Step 2: Reopen the Project in a VSCode Dev Container
 To reopen the project in the container, press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Mac) and search for **Dev Containers: Reopen in Container**, then select it. This may take a few minutes, don't worry!
 
-Once your dev container setup completes, close the current terminal tab and open a new terminal pane within VSCode. Run: `go version`. You should see your dev container running the latest version of Go. 
+Once your dev container setup completes, close the current terminal tab and open a new terminal pane within VSCode. Run: `go version`. You should see your dev container running the latest version of Go. (As of January 2025, the latest stable Go version is go1.23.4)
 
 ## Part 3: Developing in Go
 
@@ -155,6 +154,8 @@ go 1.xx
 ``` bash
 code main.go
 ```
+!!! note
+    The `code` command is not set up by default for VSCode. To set it up you can check out my colleague's tutorial [here.](https://muhammaddf.github.io/comp423-course-notes/tutorials/code-command/) Otherwise you can just manually do it in VSCode by right-clicking on the hello_world folder, creating a new file and naming it `main.go`
 
 (D) Write your first program in Go!
 ``` go
@@ -168,7 +169,7 @@ func main() {
 ```
 
 (E) You can now compile and run your code using the following command:
-```bash 
+``` bash 
 go run main.go
 ```
 
@@ -176,10 +177,10 @@ This command compiles your Go program and creates an executable in your director
 !!! optional 
     If you want to compile and run your code manually, you can use the following commands:
     Use `go build` to compile your code and create an executable in your directory. Run the executable using `./hello_world` 
-    to display your output. 
+    to display your output.This is similar to C's `gcc [filename.c] -o [output_filename]` command that you might remember from COMP 211 used to compile a program and get an executable object file.
 
 You should now see:
-```
+``` bat
 HELLO COMP423
 ```
 
