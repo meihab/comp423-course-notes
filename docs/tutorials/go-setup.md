@@ -14,6 +14,8 @@ print("We love COMP 423!")
     I have successfully set up admonitions for my partner! - Muhammad Fouly             
     You will see these throughout the tutorial for the purpose of side content without disturbing document flow :)
 
+---
+
 ## Welcome 
 This tutorial will provide step-by-step instructions for creating a Development (Dev) container in Go, a programming language created by Google!
 
@@ -27,6 +29,9 @@ To proceed with this tutorial, you will need to have the following:
 3. **Visual Studio Code**: Download and install from [here](https://code.visualstudio.com/).
 4. **Docker installed**: Get Docker [here](https://www.docker.com/products/docker-desktop/).
 5. **Basic command-line knowledge**
+
+!!! Requirements
+      For this tutorial, you do not need to install anything other than VSCode, Docker, and Git. You should not install Go! That is the role of the dev container! Remember that you want to minimize the things you have to manually download and install.
 
 ---
 
@@ -60,7 +65,7 @@ git commit -m "Initial commit with README"
 
 (C) Do not initialize the repository with a README, .gitignore, or license.
 
-(D) Click Create **Repository**.
+(D) Click **Create Repository**.
 
 ### Link your Local Repository to GitHub
 (A) Add the GitHub repository as a remote:
@@ -72,12 +77,15 @@ Replace `<your-username>` with your GitHub username.
 (B) Check your default branch name with the subcommand `git branch`. 
 
 !!! Note
-    Old versions of git choose the name `master` for the primary branch, but these days `main` is the standard name. You can rename your default branch to main using the following command: `git branch -M main`
+    Old versions of git choose the name `master` for the primary branch, but these days `main` is the standard name. You should rename your default branch to main using the following command: `git branch -M main`
 
 (C) Push your local commits to the GitHub repository:
 ``` bash
 git push --set-upstream origin main
 ``` 
+
+!!! Note
+      The --set-upstream flag sets up the main branch to track the remote branch, meaning future pushes and pulls can be done without specifying the branch name and just writing git push origin when working on your local main branch. This long flag has a corresponding -u short flag.
 
 (D) Back in your web browser, refresh your GitHub repository to see that the same commit you made locally has now been pushed to remote. You can use git log locally to see the commit ID and message which should match the ID of the most recent commit on GitHub. This is the result of pushing your changes to your remote repository.
 
@@ -87,7 +95,7 @@ git push --set-upstream origin main
 
 ### What is a Development (Dev) Container?
 
-A dev container ensures that you are using the same development tools no matter which machine you are on. In essence, a dev container is a preconfigured environment defined by a set of files usually using Docker to create isolated, consistent setups for development. Think of it as another computer running on your computer which includes everything you need to work on a specific project. This can include the right programming language, tools, libraries, dependencies, etc.
+A **dev container** ensures that you are using the same development tools no matter which machine you are on. In essence, a dev container is a preconfigured environment defined by a set of files usually using Docker to create isolated, consistent setups for development. Think of it as another computer running on your computer which includes everything you need to work on a specific project. This can include the right programming language, tools, libraries, dependencies, etc.
 
 This is valuable because teams in the technology industry often work on complex projects that require a specific set of tools and dependencies. Without a dev container, each developer has to manually set up their environment on their machine. This could lead to errors, wasted time, and inconsistencies. However, with a dev container, everyone on the team works in an identical environment, reducing bugs caused by "it works on my machine" issues. Dev containers also simplify onboarding new team members and reduce wasted time since they can just start coding with a few lines of json in place.
 
@@ -95,13 +103,16 @@ This is valuable because teams in the technology industry often work on complex 
 In most software projects, you will rely on external libraries to leverage work that has been done by others. Managing software dependencies is essential to ensure that your project has access to the correct versions of all of these libraries, avoiding compatibility issues. 
 
 For Go, **Go Modules** manage dependencies. This system was introduced to standardize how external packages are fetched and versioned:
+
 - **go.mod**: Lists your module’s name and its direct dependencies.
 - **go.sum**: Locks down the exact versions of your dependencies to ensure consistent builds across machines.
+
+
 We will see a simple example of dependency management in Go soon!
 
 ### Step 1. Add Development Container Configuration
 1. In VS Code, open the `go-dev-container` directory. You can do this via: File > Open Folder.
-    - For more convenience, follow [this.](https://muhammaddf.github.io/comp423-course-notes/tutorials/code-command/)
+    - For more convenience, follow [this](https://muhammaddf.github.io/comp423-course-notes/tutorials/code-command/) short tutorial created by my partner!
 2. Install the Dev Containers extension for VS Code.
 3. Create a `.devcontainer` directory in the root of your project with the following file inside of this "hidden" configuration directory: 
 
@@ -179,16 +190,21 @@ func main() {
 }
 ```
 
-(C) You can now compile and run your code using the following command:
-``` bash 
-go run main.go
+(C) You can now **compile** your Go program:
+
+``` bash
+go build 
 ```
 
-This command compiles your Go program and creates an executable in your directory.
+This command compiles your code and creates an executable in your directory. This is similar to C's `gcc [filename.c] -o [output_filename]` command that you used in COMP 211 to compile a program and get an executable object file. 
+
+(D) **Run** the executable:
+``` bash
+./hello_world
+```
+
 !!! optional 
-    If you want to compile and run your code manually, you can use the following commands:
-    Use `go build` to compile your code and create an executable in your directory. Run the executable using `./hello_world` 
-    to display your output.This is similar to C's `gcc [filename.c] -o [output_filename]` command that you might remember from COMP 211 used to compile a program and get an executable object file.
+    If you want to compile and run your Go program in one command, you can alternatively use `go run main.go`. 
 
 You should now see:
 ``` bat
@@ -196,7 +212,7 @@ HELLO COMP423
 ```
 
 !!! success 
-    You have built a development container for Go and successfully printed HELLO COMP423!
+    You have built a development container for Go and successfully printed "HELLO COMP423!"
 
 ---
 
@@ -212,11 +228,14 @@ git push
 --- 
 
 ## Conclusion
+Congratulations! You have successfully completed this tutorial for setting up a dev container for Go and learned some foundational skills!
 
 --- 
 
 ## References
-
+1. This tutorial is heavily inspired by Professor Kris Jordan’s tutorial: [Starting a Static Website Project with MkDocs](https://comp423-25s.github.io/resources/MkDocs/tutorial/)
+1. [Go](https://go.dev/doc/) documentation
+1. [MkDocs Material Documentation](https://squidfunk.github.io/mkdocs-material/)
 
 
 
